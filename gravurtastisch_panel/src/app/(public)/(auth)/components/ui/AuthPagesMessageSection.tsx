@@ -1,0 +1,176 @@
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
+
+const FEATURES = [
+	{
+		icon: 'heroicons-solid:photo',
+		label: 'Photo Cups & Mugs',
+		description: 'Full-wrap prints and heat-changing cups',
+		accentColor: '#D2B48C',
+		badgeBg: 'rgba(210, 180, 140, 0.14)',
+		borderColor: 'rgba(210, 180, 140, 0.35)'
+	},
+	{
+		icon: 'heroicons-solid:sparkles',
+		label: 'Laser Engraving',
+		description: 'Boards, coasters, wallets & keepsakes',
+		accentColor: '#C4B5FD',
+		badgeBg: 'rgba(196, 181, 253, 0.14)',
+		borderColor: 'rgba(196, 181, 253, 0.35)'
+	},
+	{
+		icon: 'heroicons-solid:shopping-bag',
+		label: 'Custom Apparel',
+		description: 'DTG prints, embroidery & tote bags',
+		accentColor: '#86EFAC',
+		badgeBg: 'rgba(134, 239, 172, 0.12)',
+		borderColor: 'rgba(134, 239, 172, 0.3)'
+	},
+	{
+		icon: 'heroicons-solid:clipboard-document-check',
+		label: 'Order Desk',
+		description: 'Proofs, production & delivery in one place',
+		accentColor: '#F9A8D4',
+		badgeBg: 'rgba(249, 168, 212, 0.12)',
+		borderColor: 'rgba(249, 168, 212, 0.3)'
+	}
+];
+
+function AuthPagesMessageSection() {
+	return (
+		<Box
+			className="relative hidden min-h-screen w-full flex-col justify-center overflow-hidden p-8 md:flex md:w-1/2 lg:px-16 lg:py-12 select-none"
+			sx={{
+				background: 'linear-gradient(145deg, #282828 0%, #1E1E1E 42%, #121212 100%)',
+				color: 'primary.contrastText'
+			}}
+		>
+			<div className="pointer-events-none absolute -top-24 -right-24 h-[420px] w-[420px] rounded-full bg-white/5 blur-[120px]" />
+			<div className="pointer-events-none absolute bottom-10 right-1/4 h-[380px] w-[380px] rounded-full bg-neutral-500/10 blur-[120px]" />
+
+			<Box
+				component="svg"
+				className="pointer-events-none absolute top-0 right-0"
+				sx={{ color: 'primary.light', opacity: 0.08 }}
+				viewBox="0 0 320 260"
+				width="320px"
+				height="260px"
+				fill="none"
+			>
+				<defs>
+					<pattern
+						id="auth-dot-grid"
+						x="0"
+						y="0"
+						width="24"
+						height="24"
+						patternUnits="userSpaceOnUse"
+					>
+						<circle cx="3" cy="3" r="1.5" fill="currentColor" />
+					</pattern>
+				</defs>
+				<rect width="320" height="260" fill="url(#auth-dot-grid)" />
+			</Box>
+
+			<div className="relative z-10 w-full max-w-2xl flex flex-col my-auto py-4">
+				<div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3.5 py-1 backdrop-blur-md self-start">
+					<span className="relative flex h-2 w-2">
+						<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-300 opacity-75" />
+						<span className="relative inline-flex h-2 w-2 rounded-full bg-amber-300" />
+					</span>
+					<span className="text-[11px] font-bold tracking-widest text-slate-200 uppercase">
+						Custom Engraving Studio
+					</span>
+				</div>
+
+				<Typography
+					sx={{
+						fontSize: { xs: 32, sm: 38, lg: 44 },
+						fontWeight: 800,
+						lineHeight: 1.15,
+						letterSpacing: '-0.025em',
+						color: '#ffffff',
+						textShadow: '0 2px 14px rgba(0,0,0,0.4)'
+					}}
+				>
+					Photo cups, kitchenware &amp;{' '}
+					<span className="bg-gradient-to-r from-amber-300 via-orange-200 to-purple-200 bg-clip-text text-transparent">
+						engraved keepsakes
+					</span>
+				</Typography>
+
+				<Typography
+					sx={{
+						mt: 2,
+						fontSize: { xs: 14.5, sm: 15.5, lg: 16 },
+						lineHeight: 1.6,
+						color: 'rgba(226, 232, 240, 0.85)',
+						maxWidth: 520
+					}}
+				>
+					Manage customisation orders, digital proofs, and production from one Gravurtastisch
+					desk — built for personalised gifts and engraved goods.
+				</Typography>
+
+				<div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+					{FEATURES.map((feature) => (
+						<div
+							key={feature.label}
+							className="group flex items-start gap-3.5 p-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-amber-300/35 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-950/40"
+						>
+							<div
+								className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
+								style={{
+									backgroundColor: feature.badgeBg,
+									color: feature.accentColor,
+									border: `1px solid ${feature.borderColor}`
+								}}
+							>
+								<FuseSvgIcon size={22}>{feature.icon}</FuseSvgIcon>
+							</div>
+
+							<div className="min-w-0">
+								<Typography
+									sx={{
+										fontSize: 14,
+										fontWeight: 700,
+										lineHeight: 1.3,
+										color: '#f8fafc'
+									}}
+								>
+									{feature.label}
+								</Typography>
+								<Typography
+									sx={{
+										fontSize: 12,
+										color: 'rgba(203, 213, 225, 0.75)',
+										mt: 0.4,
+										lineHeight: 1.4
+									}}
+								>
+									{feature.description}
+								</Typography>
+							</div>
+						</div>
+					))}
+				</div>
+
+				<div className="mt-4 flex items-center justify-between rounded-xl border border-amber-400/25 bg-amber-950/20 px-4 py-2.5 backdrop-blur-md">
+					<div className="flex items-center gap-2">
+						<span className="flex h-2 w-2 rounded-full bg-amber-300 animate-pulse" />
+						<span className="text-xs font-semibold text-amber-100">
+							Free digital proof on custom orders
+						</span>
+					</div>
+					<div className="flex items-center gap-1.5 text-xs font-bold text-amber-200">
+						<span>Handcrafted</span>
+						<span className="text-slate-300 ml-1">with precision</span>
+					</div>
+				</div>
+			</div>
+		</Box>
+	);
+}
+
+export default AuthPagesMessageSection;

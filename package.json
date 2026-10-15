@@ -1,0 +1,27 @@
+{
+  "name": "gravurstastich",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gravurstastich monorepo (core API, admin panel, public web)",
+  "packageManager": "pnpm@12.4.2",
+  "engines": {
+    "node": ">=20.19.0",
+    "pnpm": ">=12.4.2"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev:core": "pnpm --filter @gravurstastich/core dev",
+    "dev:panel": "pnpm --filter @gravurstastich/panel dev",
+    "dev:web": "pnpm --filter @gravurstastich/web dev",
+    "build:panel": "pnpm --filter @gravurstastich/panel build",
+    "build:web": "pnpm --filter @gravurstastich/web build",
+    "build:core": "pnpm --filter @gravurstastich/core build",
+    "start": "pnpm --filter @gravurstastich/core start:run",
+    "start:core": "pnpm --filter @gravurstastich/core start:run",
+    "lint": "pnpm -r --if-present lint",
+    "format": "pnpm -r --if-present format"
+  },
+  "devDependencies": {
+    "only-allow": "^1.2.2"
+  }
+}
